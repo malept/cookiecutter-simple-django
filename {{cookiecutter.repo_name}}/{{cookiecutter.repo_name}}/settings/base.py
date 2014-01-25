@@ -23,8 +23,11 @@ DATABASES = {
         'NAME': '{{cookiecutter.repo_name}}',
         'USER': 'postgres',
         'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        # Empty for localhost through domain sockets or '127.0.0.1' for
+        # localhost through TCP.
+        'HOST': '',
+        # Set to empty string for default.
+        'PORT': '',
     }
 }
 
@@ -163,11 +166,11 @@ LOGGING = {
 
 # .local.py overrides all the common settings.
 try:
-    from .local import *
+    from .local import *  # NOQA
 except ImportError:
     pass
 
 
 # importing test settings file if necessary (TODO chould be done better)
 if len(sys.argv) > 1 and 'test' in sys.argv[1]:
-    from .testing import *
+    from .testing import *  # NOQA
